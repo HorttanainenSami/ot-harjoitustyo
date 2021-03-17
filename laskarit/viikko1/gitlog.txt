@@ -1,0 +1,113 @@
+commit 48d8ce8b45394eec137386e18473cfd284717365
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 11:02:04 2021 +0200
+
+    poistettu file1 ja muutettu file2>file22
+
+ file2           | 0
+ file1 => file22 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit cfea8eea818d3f488944d4694af6c93dd267f37e
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:53:57 2021 +0200
+
+    luotu file1, file2 ja file3
+
+ file1 | 0
+ file2 | 0
+ file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit dc34d83d08b6d0db8a8688c06ce9ab58abb825b5
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:38:08 2021 +0200
+
+    muutos eka.txt ja kolmas.txt
+
+ eka.txt    | 7 +------
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 7 deletions(-)
+
+commit 06a78b4452e3c5fb55df51e636cfe540975915ed
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:32:36 2021 +0200
+
+    muutettu tiedoston.txt nimeä eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 720e540caf493218c0d636096ab2e5fd8e6452cb
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:31:24 2021 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 6c4aa5506b260cf98c5ac46af3fc34382d5abb6d
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:29:21 2021 +0200
+
+    muutos tiedosto.txt
+
+ tiedosto.txt | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+commit 64cfe91edc91bfab9f452b0ddfead393a92240b6
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:28:29 2021 +0200
+
+    lisätty lorem ipsua 500 sanaa tiedosto.txt:n
+
+ tiedosto.txt | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+commit 507844544fd8934123eec5b251951fb590fb2a37
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:25:19 2021 +0200
+
+    lisätty tiedosto.txt stuff kansioon
+
+ stuff/tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 9cd4f52d7c1bed5e14fc260d8f922a95472ac37e
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:24:06 2021 +0200
+
+    muutos toinen ja kolmas
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit ca222b3109c2138ce05607a40d36a890620fb271
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:23:15 2021 +0200
+
+    lisätty kolmas tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 96fd35048c053e8c0ca68afafa3ac13f43436e9c
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 10:19:49 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit c7f8d8215b63f804ba8959de01a988abb6adc2a0
+Author: Sami Horttanainen <horttsam@ad.helsinki.fi>
+Date:   Wed Mar 17 09:52:59 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
