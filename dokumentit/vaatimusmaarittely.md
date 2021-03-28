@@ -1,4 +1,4 @@
-#Vaatimusmäärittely
+# Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
 Ruoka reseptien tarjoaja. Ideana on että ohjelmanaan sijoitetaan reseptejä. Ohjelma ehdottaa ruokia mitä et ole hetkeen tehnyt, näistä voit valita haluamasi seuraavan reseptin. Sovellus tarjoaa jokaiselle ruualle reseptin, oman ostoslistan ja syötetyn hinnan
