@@ -15,6 +15,12 @@ Viikon 2:
 * [kassapaate_test.py](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/laskarit/viikko2/unicafe/src/tests/kassapaate_test.py)
 * [maksukortti_test.py](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/laskarit/viikko2/unicafe/src/tests/maksukortti_test.py)
 
+Viikon 3:
+
+* [Tehtävä 1](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/laskarit/viikko3/Luokkakaavio_1.jpg)
+* [Tehtävä 2](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/laskarit/viikko3/Luokkakaavio_2.jpg)
+* [Tehtävä 3](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/laskarit/viikko3/Laskari3-T3.png)
+* [Tehtävä 4](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/laskarit/viikko3/sekvenssi_tehtava4.png)
 
 ### Harjoitus projekti
 [Vaatimusmäärittely](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/vaatimusmaarittely.md)
