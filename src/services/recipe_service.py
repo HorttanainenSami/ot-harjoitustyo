@@ -22,7 +22,6 @@ class RecipeService:
     def handle_login(self, username, password):
         if self._user_repository.check_login(username, password):
             self._user = username
-            print('user is logged in as', self._user)
         else:
             raise InvalidLoginError('Username or password is wrong')
 
