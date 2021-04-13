@@ -3,5 +3,9 @@
 /laskarit/viikko2/unicafe/src/tests/__pycache__
 /laskarit/viikko2/unicafe/.coverage
 /laskarit/viikko2/unicafe/htmlcov
+/htmlcov
 Todo.txt
 /src/__pycache__
+/src/ui/__pycache__
+/src/repositories/__pycache__
+/src/services/__pycache__
