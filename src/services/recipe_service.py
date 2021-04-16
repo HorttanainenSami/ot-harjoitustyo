@@ -25,6 +25,11 @@ class RecipeService:
         else:
             raise InvalidLoginError('Username or password is wrong')
 
+    def handle_logout(self):
+        if self._user:
+            print(f'{self._user} logged out')
+            self._user = None
+
     def create_user(self, username, password):
         print(f'trying to create user {username} and {password}') 
         result= self._user_repository.get_user(username)
