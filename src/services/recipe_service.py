@@ -1,5 +1,7 @@
 from repositories.users_repository import UserRepository
+from repositories.recipes_repository import RecipeRepository
 from database_connection import get_database_connection
+
 
 ## errors
 class Error(Exception):
@@ -17,11 +19,16 @@ class RecipeService:
 
     def __init__(self):
         self._user_repository = UserRepository(get_database_connection())
+        self._recipe_repository = RecipeRepository(get_database_connection())
         self._user = None
-    
+        self._user_id = None
+
     def handle_login(self, username, password):
-        if self._user_repository.check_login(username, password):
+        result = self._user_repository.check_login(username, password)
+        if result:
             self._user = username
+            print(result[0])
+            self._user_id = result[0]
         else:
             raise InvalidLoginError('Username or password is wrong')
 
@@ -42,3 +49,7 @@ class RecipeService:
     def get_logged_user(self):
         return self._user
 
+    def createRecipe(self, recipe_name, ingredients, instructions):
+        splits = ingredients.splitlines()
+        print(recipe_name)
+        self._recipe_repository.insert_recipe(recipe_name, instructions, self._user_id)

@@ -26,7 +26,7 @@ class LoginView:
             self._show_recipes()
         except InvalidLoginError:
             self._error.set('Invalid username or password')
-            
+
 
     def _initialize(self):
         self._root.title('Login view')
@@ -50,7 +50,7 @@ class LoginView:
         )
 
         register_label = ttk.Label(master=self._frame, text='If you dont have user')
-        regiter_button = ttk.Button(master=self._frame, text='Register new user', command=self._show_register)
+        register_button = ttk.Button(master=self._frame, text='Register new user', command=self._show_register)
 
 
         label.grid(padx=5, pady=5)
@@ -61,5 +61,5 @@ class LoginView:
         password_entry.grid(row=3, column=1, padx=5, pady=5)
         button.grid(padx=5, pady=5)
         register_label.grid(padx=5, pady=5)
-        regiter_button.grid(row=5, column=1, padx=5, pady=5)
+        register_button.grid(row=5, column=1, padx=5, pady=5)
 
