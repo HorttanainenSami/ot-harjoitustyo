@@ -8,25 +8,32 @@ Sovelluksessa on ainoastaan peruskäyttäjä.
 
 # Perusversion tarjoamia toiminnallisuuksia
 ## Ennen kirjautumista
-Kirjautumis sivusto:
-Käyttäjä voi luoda käyttäjätunnuksen
+* [x] Kirjautumis sivusto:
+* [x] Käyttäjä voi luoda käyttäjätunnuksen
 -vähintään 4 merkin mittainen käyttäjätunnus
 
-Käyttäjä voi kirjautua sisään
--Jos käyttäjä löytyy järjestelmästä, hänet kirjataan sisään
--Jos käyttäjää ei löydy, ilmoittaa järjestelmä virheestä
+* [x] Käyttäjä voi kirjautua sisään
+* [x] Jos käyttäjä löytyy järjestelmästä, hänet kirjataan sisään
+* [x] Jos käyttäjää ei löydy, ilmoittaa järjestelmä virheestä
 
 ## Kirjautumisen jälkeen
 Kaikkien reseptien näkyminen
--pinossa viimeisimpänä resepti mitä on tehty aikajärjestyksessä viimeisimpänä
--reseptejä voi tarkastella ja merkitä tehdyksi, jolloin se siirtyy listan viimeisimmäksi
+* [x] pinossa viimeisimpänä resepti mitä on tehty aikajärjestyksessä viimeisimpänä
+* Reseptejä voi 
+* [x] tarkastella 
+* [ ] merkitä tehdyksi, jolloin se siirtyy listan viimeisimmäksi
 
 Reseptin tarkastelu/muokkaus/poisto
--reseptiä voi tarkastella ja ladata ostoslistan
--reseptiä voi muokata tai poistaa
+* reseptiä voi
+* [X]  tarkastella 
+* [ ] ladata ostoslistan
+* [X] muokata
+* [ ] poistaa
 
 Reseptin luominen:
-- Tallennetaan ainekset, ohjeet, vaikeustaso
+* [x] Tallennetaan ainekset
+* [x] ohjeet
+* [ ] vaikeustaso
 
 ## Jatkokehitysideoita
 - Ehdottaisi ruokia jotka ovat sesongissa
