@@ -6,7 +6,6 @@ def drop_tables(connection):
     cursor.execute('''drop table if exists user;''')
     cursor.execute('''drop table if exists recipes;''')
     cursor.execute('''drop table if exists ingredient;''')
-    
 
 def create_tables(connection):
     cursor = connection.cursor()
@@ -24,7 +23,8 @@ def create_tables(connection):
         id INTEGER PRIMARY KEY,
         user_id text REFERENCES user(id),
         name text,
-        instructions text
+        instructions text,
+        previous_timestamp text
         );
     ''')
 
@@ -34,6 +34,9 @@ def create_tables(connection):
         ingredient text,
         recipe_id text REFERENCES recipes(id)
         ); 
+    ''')
+    cursor.execute('''
+        create index idx_recipeid ON ingredient (recipe_id);
     ''')
     connection.commit()
 

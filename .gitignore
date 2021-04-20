@@ -8,4 +8,15 @@ Todo.txt
 /src/__pycache__
 /src/ui/__pycache__
 /src/repositories/__pycache__
+.vscode
+.DS_Store
+.coverage
+.pytest_cache
+htmlcov
+__pycache__
+*.py[cod]
+*$py.class
+
+# data files
+/data/
 /src/services/__pycache__

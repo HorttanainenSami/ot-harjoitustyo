@@ -12,3 +12,6 @@ def coverage(ctx):
 @task(coverage)
 def coverage_report(ctx):
     ctx.run('coverage html')
+@task(coverage_report)
+def report(ctx):
+    ctx.run('chromium htmlcov/index.html')
