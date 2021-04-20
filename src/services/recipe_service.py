@@ -11,7 +11,7 @@ class Error(Exception):
 class InvalidLoginError(Error):
     """ raised when login ends with error""" 
     pass
-class UsernameAllreadyInUseError(Error):
+class UsernameAlreadyInUseError(Error):
     """ raised when username is allready in use"""
     pass
 
@@ -27,8 +27,8 @@ class RecipeService:
         result = self._user_repository.check_login(username, password)
         if result:
             self._user = username
-            print(result[0])
             self._user_id = result[0]
+            return True
         else:
             raise InvalidLoginError('Username or password is wrong')
 
@@ -36,20 +36,62 @@ class RecipeService:
         if self._user:
             print(f'{self._user} logged out')
             self._user = None
+            return True
+        return False
 
     def create_user(self, username, password):
-        print(f'trying to create user {username} and {password}') 
-        result= self._user_repository.get_user(username)
+        print(f'trying to create user {username} and {password}')
+        result = self._user_repository.get_user(username)
         if result is None:
             print(f'{username} is created')
             self._user_repository.insert_user(username, password)
+            return True
         else:
-            raise UsernameAllreadyInUseError('Username is allready in use')
+            raise UsernameAlreadyInUseError('Username is already in use')
 
-    def get_logged_user(self):
+    def get_loggedin_user(self):
         return self._user
 
-    def createRecipe(self, recipe_name, ingredients, instructions):
-        splits = ingredients.splitlines()
-        print(recipe_name)
-        self._recipe_repository.insert_recipe(recipe_name, instructions, self._user_id)
+    def create_recipe(self, recipe_name, ingredients, instructions):
+        recipe_id = self._recipe_repository.insert_recipe(recipe_name, instructions, self._user_id)
+
+        for ingredient in ingredients:
+            self._recipe_repository.add_ingredients(ingredient, recipe_id)
+
+    def get_all_recipes(self):
+        return self._recipe_repository.get_all_recipes(self._user_id)
+        
+    def get_ingredients(self, recipe_id):
+        return self._recipe_repository.get_ingredients(recipe_id)
+    
+    def update_recipe(self, recipe_id, name, ingredients, instructions):
+        self._recipe_repository.update_recipe(recipe_id, name, instructions)
+        self.ingredients_changed(recipe_id, ingredients)
+
+    def ingredients_changed(self, recipe_id, ingredients):
+        saved_ingredients = self._recipe_repository.get_ingredients(recipe_id)
+        asd = len(ingredients)
+        if len(saved_ingredients) < len(ingredients):
+            asd = len(saved_ingredients)
+        idx = 0
+        while idx < asd:
+            server_ingredient_name = str(saved_ingredients[idx][1])
+            updated_ingredient_name = ingredients[idx]
+            ingredient_id = saved_ingredients[idx][0]
+
+            print(f'name = {server_ingredient_name} : {updated_ingredient_name}')
+            if server_ingredient_name != updated_ingredient_name:
+                print('update')
+                self._recipe_repository.update_ingredient(ingredient_id, updated_ingredient_name)
+            idx += 1
+        ## add ingredients if new
+        i = len(saved_ingredients)
+        while i < len(ingredients):
+            self._recipe_repository.add_ingredients(ingredients[i], recipe_id)
+            i += 1
+        ## remove ingredients if removed
+        i = len(ingredients)
+        while i < len(saved_ingredients):
+            self._recipe_repository.remove_ingredient(saved_ingredients[i][0])
+            i += 1
+
