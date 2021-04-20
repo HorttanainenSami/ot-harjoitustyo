@@ -8,8 +8,9 @@ tehnyt **Sami Horttanainen**
 ## Python-versio
 Sovelluksen toiminta on kehitetty ja todettu toimivaksi vähintään Python-versiolla ```3.6.0 ```
 ## Dokumentaatio
-[Vaatimusmäärittely](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/vaatimusmaarittely.md)
-[Työaikakirjanpito](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/tyoaikakirjanpito.md)
+- [Vaatimusmäärittely](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/vaatimusmaarittely.md)
+- [Työaikakirjanpito](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/tyoaikakirjanpito.md)
+- [Arkkitehtuurikuvaus](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/arkkitehtuuri.md)
 
 ## Asennus
 1. Asenna riippuvuudet komennolla:
@@ -26,3 +27,9 @@ Ohjelman pystyy suorittamaan komennolla:
 ### Testaus
 Testit suoritetaan komennolla:
 ```poetry run invoke test```
+### Testikattavuus
+```poetry run invoke test```
+### Haaroittuvuus kattavuuus
+```poetry run invoke report```
+### Pylint
+```poetry run invoke lint```
