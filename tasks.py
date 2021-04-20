@@ -15,3 +15,6 @@ def coverage_report(ctx):
 @task(coverage_report)
 def report(ctx):
     ctx.run('chromium htmlcov/index.html')
+@task
+def lint(ctx):
+    ctx.run('poetry run pylint src')
