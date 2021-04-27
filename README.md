@@ -8,14 +8,15 @@ tehnyt **Sami Horttanainen**
 ## Python-versio
 Sovelluksen toiminta on kehitetty ja todettu toimivaksi vähintään Python-versiolla ```3.6.0 ```
 ## Dokumentaatio
-[Vaatimusmäärittely](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/vaatimusmaarittely.md)
-[Työaikakirjanpito](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/tyoaikakirjanpito.md)
+- [Vaatimusmäärittely](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/vaatimusmaarittely.md)
+- [Työaikakirjanpito](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/tyoaikakirjanpito.md)
+- [Arkkitehtuurikuvaus](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/arkkitehtuuri.md)
 
 ## Asennus
 1. Asenna riippuvuudet komennolla:
  ```poetry install```
 2. suorita alustustoimentpiteet:
-```poetry un invoke build```
+```poetry run invoke build```
 3. Käynnistä sovellus komennolla:
 ```poetry run invoke start```
 
@@ -26,3 +27,7 @@ Ohjelman pystyy suorittamaan komennolla:
 ### Testaus
 Testit suoritetaan komennolla:
 ```poetry run invoke test```
+### Testikattavuus
+```poetry run invoke coverage-report```
+### Pylint
+```poetry run invoke lint```
