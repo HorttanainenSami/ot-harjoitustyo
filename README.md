@@ -16,7 +16,7 @@ Sovelluksen toiminta on kehitetty ja todettu toimivaksi vähintään Python-vers
 1. Asenna riippuvuudet komennolla:
  ```poetry install```
 2. suorita alustustoimentpiteet:
-```poetry un invoke build```
+```poetry run invoke build```
 3. Käynnistä sovellus komennolla:
 ```poetry run invoke start```
 
@@ -28,8 +28,6 @@ Ohjelman pystyy suorittamaan komennolla:
 Testit suoritetaan komennolla:
 ```poetry run invoke test```
 ### Testikattavuus
-```poetry run invoke test```
-### Haaroittuvuus kattavuuus
-```poetry run invoke report```
+```poetry run invoke coverage-report```
 ### Pylint
 ```poetry run invoke lint```
