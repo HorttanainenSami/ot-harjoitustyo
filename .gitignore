@@ -18,5 +18,6 @@ __pycache__
 *$py.class
 src/tags
 # data files
-data/
+data/database.sqlite
+data/test-database.sqlite
 src/services/__pycache__
