@@ -21,14 +21,14 @@ Kaikkien reseptien näkyminen
 * [x] pinossa viimeisimpänä resepti mitä on tehty aikajärjestyksessä viimeisimpänä
 * Reseptejä voi 
 * [x] tarkastella 
-* [ ] merkitä tehdyksi, jolloin se siirtyy listan viimeisimmäksi
+* [x] merkitä tehdyksi, jolloin se siirtyy listan viimeisimmäksi
 
 Reseptin tarkastelu/muokkaus/poisto
 * reseptiä voi
 * [X]  tarkastella 
 * [ ] ladata ostoslistan
 * [X] muokata
-* [ ] poistaa
+* [x] poistaa
 
 Reseptin luominen:
 * [x] Tallennetaan ainekset
