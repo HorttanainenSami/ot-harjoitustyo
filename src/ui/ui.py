@@ -31,7 +31,7 @@ class UI:
 
     def _show_recipes_view(self):
         self._current_view = RecipesView(self._root, self.handle_login, self.handle_create_recipes, self._service, self.handle_recipe)
-    
+
     def _show_recipe_view(self, recipe_id):
         self._current_view = RecipeView(self._root, self._service, self.handle_recipes, self.handle_create_recipes, self.handle_edit_recipes, recipe_id)
 

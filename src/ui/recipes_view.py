@@ -33,11 +33,9 @@ class RecipesView:
         label = ttk.Label(master=self._frame, text='Recipe suggester app')
         label.grid(padx=20, pady=20, sticky=constants.EW, columnspan=3)
 
-
     def _initialize_navbar(self):
         logout_btn = ttk.Button(master=self._frame, text='Log out', command=self._handle_logout)
         create_recipe_btn = ttk.Button(master=self._frame, text='Create new recipe', command=self._handle_add_recipe)
-
         create_recipe_btn.grid(padx=5, pady=5)
         logout_btn.grid(padx=5, pady=5, row=0, column=1)
 

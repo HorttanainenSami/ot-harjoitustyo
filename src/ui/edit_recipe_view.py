@@ -46,7 +46,7 @@ class EditRecipeView:
             command=lambda: self._handle_update(instruction_txt.get('1.0', 'end'))
             )
         instruction_lbl.grid(padx=5, pady=5)
-        instruction_txt.grid(padx=5, pady=5, columnspan=3)
+        instruction_txt.grid(column=1, padx=5, pady=5, columnspan=3)
         button.grid(padx=5, pady=5)
 
     def _initialize(self):
@@ -87,7 +87,7 @@ class HeaderFrame:
 
         header_label.grid(padx=5, pady=5)
         recipe_name_lbl.grid(padx=5, pady=5)
-        recipe_name_ent.grid(padx=5, pady=5)
+        recipe_name_ent.grid(column=1, padx=5, pady=5)
 
 class IngredientList:
     def __init__(self, root, ingredients):
@@ -105,7 +105,7 @@ class IngredientList:
     def get_ingredients_list(self):
         entry_list = []
         for i, widget in enumerate(self._frame.winfo_children()):
-            if i >= 2:
+            if i >= 3:
                 entry_list.append(widget.get())
 
         return entry_list
@@ -113,10 +113,10 @@ class IngredientList:
     def _initialize_item(self, item):
         list_item = ttk.Entry(master=self._frame)
         list_item.insert(0, str(item))
-        list_item.grid()
+        list_item.grid(column=1)
 
     def _add_entry(self):
-        ttk.Entry(master=self._frame).grid()
+        ttk.Entry(master=self._frame).grid(column=1)
 
     def _remove_entry(self):
         if len(self._frame.winfo_children()) > 2:
@@ -124,12 +124,23 @@ class IngredientList:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame['padding'] = 5
+        label = ttk.Label(master=self._frame, text='ingredients:')
+        add_btn = ttk.Button(
+            master=self._frame,
+            text='+',
+            command=self._add_entry
+        )
+        remove_btn = ttk.Button(
+            master=self._frame,
+            text='-',
+            command=self._remove_entry
+        )
 
-        add_btn = ttk.Button(master=self._frame, text='add new ingredient', command=self._add_entry)
-        remove_btn = ttk.Button(master=self._frame, text='remove ingredient', command=self._remove_entry)
+        label.grid(padx=1, pady=5)
+        add_btn.grid(padx=1, pady=5)
+        remove_btn.grid(row=1, column=1)
 
-        add_btn.grid()
-        remove_btn.grid()
 
         for item in self._ingredients:
             self._initialize_item(item[1])

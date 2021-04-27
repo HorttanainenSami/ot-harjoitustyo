@@ -9,10 +9,10 @@ class Error(Exception):
     pass
 
 class InvalidLoginError(Error):
-    """ raised when login ends with error""" 
+    """ raised when login ends with error"""
     pass
 class UsernameAlreadyInUseError(Error):
-    """ raised when username is allready in use"""
+    """ raised when username is already in use"""
     pass
 
 class RecipeService:
@@ -29,8 +29,7 @@ class RecipeService:
             self._user = username
             self._user_id = result[0]
             return True
-        else:
-            raise InvalidLoginError('Username or password is wrong')
+        raise InvalidLoginError('Username or password is wrong')
 
     def handle_logout(self):
         if self._user:
@@ -46,8 +45,8 @@ class RecipeService:
             print(f'{username} is created')
             self._user_repository.insert_user(username, password)
             return True
-        else:
-            raise UsernameAlreadyInUseError('Username is already in use')
+
+        raise UsernameAlreadyInUseError('Username is already in use')
 
     def get_loggedin_user(self):
         return self._user
@@ -60,13 +59,16 @@ class RecipeService:
 
     def get_all_recipes(self):
         return self._recipe_repository.get_all_recipes(self._user_id)
-        
+
     def get_ingredients(self, recipe_id):
         return self._recipe_repository.get_ingredients(recipe_id)
-    
+
     def update_recipe(self, recipe_id, name, ingredients, instructions):
         self._recipe_repository.update_recipe(recipe_id, name, instructions)
         self.ingredients_changed(recipe_id, ingredients)
+
+    def set_recipe_produced(self, recipe_id):
+        self._recipe_repository.set_produced(recipe_id)
 
     def ingredients_changed(self, recipe_id, ingredients):
         saved_ingredients = self._recipe_repository.get_ingredients(recipe_id)
@@ -95,3 +97,5 @@ class RecipeService:
             self._recipe_repository.remove_ingredient(saved_ingredients[i][0])
             i += 1
 
+    def delete_recipe(self, recipe_id):
+        self._recipe_repository.remove_recipe(recipe_id)
