@@ -22,6 +22,7 @@ Toiminnallisista kokonaisuuksista vastaa [RecipeService](https://github.com/Hort
 - create_user(username, password)
 - create_recipe(recipe_name, ingredients, instructions)
 - ...
+
 ```RecipeService``` pääsee käsiksi ```RecipeRepository```:yn ja ```UserRepository```:yn joiden avulla sovelluslogiikka pääsee käsiksi tietokantaan tallennettuihin käyttäjiin ja resepteihin. 
 
 ## Tietojen pysyväistallennus
