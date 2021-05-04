@@ -12,6 +12,8 @@ Sovelluksen toiminta on kehitetty ja todettu toimivaksi vähintään Python-vers
 - [Työaikakirjanpito](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/tyoaikakirjanpito.md)
 - [Arkkitehtuurikuvaus](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/dokumentit/arkkitehtuuri.md)
 
+## Release
+- [Viikko5](https://github.com/HorttanainenSami/ot-harjoitustyo/releases)
 ## Asennus
 1. Asenna riippuvuudet komennolla:
  ```poetry install```
