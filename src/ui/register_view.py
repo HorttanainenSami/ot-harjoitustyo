@@ -1,5 +1,5 @@
 from tkinter import ttk, constants, StringVar
-from services.recipe_service import UsernameAlreadyInUseError
+from services.recipe_service import UsernameAlreadyInUseError, PasswordTooShortError, UsernameTooShortError
 
 class RegisterView:
     def __init__(self, root, handle, service):
@@ -14,15 +14,19 @@ class RegisterView:
 
     def pack(self):
         self._frame.pack(fill=constants.X)
-    
+
     def _handle_register(self):
         ## add user to database if there is no user with same username
         try:
             self._recipe_service.create_user(self._username.get(), self._password.get())
             self._handle_show_login()
+        except PasswordTooShortError:
+            self._error.set('password length must be atleast (3) characters long')
+        except UsernameTooShortError:
+            self._error.set('username length must be atleast (3) characters long')
         except UsernameAlreadyInUseError:
-            self._error.set('Username already in user')
-        
+            self._error.set('Username must be unique')
+
     def destroy(self):
         self._frame.destroy()
 
@@ -45,7 +49,7 @@ class RegisterView:
             command=self._handle_register
         )
         register_label = ttk.Label(master=self._frame, text='If you already have an user')
-        
+
         register_button = ttk.Button(
             master=self._frame,
             text='Login',

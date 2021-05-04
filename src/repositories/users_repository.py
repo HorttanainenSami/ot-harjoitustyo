@@ -2,26 +2,34 @@ import sqlite3
 
 
 class UserRepository:
+    '''Interface between database and User table
 
+    '''
     def __init__(self, connection):
         self._connection = connection
-
+        self._cursor = self._connection.cursor()
     def get_all_users(self):
-        cursor = self._connection.cursor()
-        cursor.execute('SELECT * FROM user;')
+        '''Fetch all users from database
+        Returns:
+            all users in database
+        '''
+        self._cursor.execute('SELECT * FROM user;')
 
     def insert_user(self, username, password):
-        cursor = self._connection.cursor()
-        cursor.execute('INSERT INTO user (username, password) VALUES (:username, :password)', {'username':username, 'password':password})
+        '''Inserts user in database
+        Args:
+            username
+            password
+        '''
+        self._cursor.execute('INSERT INTO user (username, password) VALUES (:username, :password)', {'username':username, 'password':password})
         self._connection.commit()
 
     def get_user(self, username):
-        cursor = self._connection.cursor()
-        result = cursor.execute('SELECT * FROM user WHERE username=:username', {'username':username})
+        '''Fetch user by username from database
+        Args:
+            username
+        Returns:
+            user which username is equal with keyword
+        '''
+        result = self._cursor.execute('SELECT * FROM user WHERE username=:username', {'username':username})
         return result.fetchone()
-
-    def check_login(self, username, password):
-        cursor = self._connection.cursor()
-        result = cursor.execute('SELECT * FROM user WHERE username=:username AND password=:password', {'username':username, 'password':password})
-        return result.fetchone()
-

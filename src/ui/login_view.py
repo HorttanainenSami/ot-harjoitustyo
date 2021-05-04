@@ -50,7 +50,11 @@ class LoginView:
         )
 
         register_label = ttk.Label(master=self._frame, text='If you dont have user')
-        register_button = ttk.Button(master=self._frame, text='Register new user', command=self._show_register)
+        register_button = ttk.Button(
+            master=self._frame,
+            text='Register new user',
+            command=self._show_register
+            )
 
 
         label.grid(padx=5, pady=5)

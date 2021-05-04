@@ -4,7 +4,6 @@ from ui.ui import UI
 from services.recipe_service import RecipeService
 
 def main():
-    # select UI to show
     service = RecipeService()
     window = Tk()
     user_interface = UI(window, service)
