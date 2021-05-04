@@ -17,7 +17,9 @@ Nyt ohjelma voidaan käynnistää projektin juurihakemistosta komennolla
 
 ## Uuden käyttäjän luominen
 Ohjelman käynnistyessä ohjelma avaa kirjautumis ikkunan:
+
 ![image](https://user-images.githubusercontent.com/67758940/117035221-b999a880-ad0c-11eb-9ec9-98b2a4583a8f.png)
+
 Koska olet todennäköisesti juuri alustanut tietokannat, tulee ensin luoda käyttäjä tietokantaan.
 
 Paina 'Register new user' - painiketta ja siirryt 'Register view' näkymään.
@@ -43,7 +45,13 @@ jonka jälkeen sinut uudelleen ohjataan ```Recipes view``` näkymälle.
 
 
 ## Reseptin luominen
-Paina ```Recipes view``` näkymästä ```Create new recipe``` - näppäintä
+Paina ```Recipes view``` näkymästä ```Create new recipe``` - näppäintä jolloin sinut siirretään ```Create recipe view``` näkymään. Tässä voit luoda uuden reseptin täyttämällä lomakkeen. Uusia ainesosia voit lisätä/poistaa painamalla 'ingredients:' osion + - tai - -näppäintä
+
+![image](https://user-images.githubusercontent.com/67758940/117036676-5ad52e80-ad0e-11eb-9f54-567c3d997102.png)
+
+Tallenna resepti painamalla alakulmasta ```Save```-näppäintä, jolloin resepti talletetaan tietokantaan.
+
+![image](https://user-images.githubusercontent.com/67758940/117036786-79d3c080-ad0e-11eb-89b4-38afba95a1c5.png)
 
 
 ## Reseptin muokkaaminen
@@ -51,3 +59,4 @@ Paina ```Recipes view``` näkymästä ```Create new recipe``` - näppäintä
 ## Reseptin poistaminen
 
 ## Ulos kirjautuminen
+Paina ```recipes view``` näkymän ```Log out```- näppäintä
