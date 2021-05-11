@@ -3,7 +3,6 @@ from repositories.recipes_repository import RecipeRepository
 from database_connection import get_database_connection
 from werkzeug.security import check_password_hash, generate_password_hash
 
-
 ## errors
 class PasswordTooShortError(Exception):
     """ raised when password is shorter than 3 chars """
@@ -137,20 +136,18 @@ class RecipeService:
             ingredients: updated ingredients list
         '''
         saved_ingredients = self._recipe_repository.get_ingredients(recipe_id)
-        asd = len(ingredients)
-        if len(saved_ingredients) < len(ingredients):
-            asd = len(saved_ingredients)
-        idx = 0
-        while idx < asd:
-            server_ingredient_name = str(saved_ingredients[idx][1])
-            updated_ingredient_name = ingredients[idx]
-            ingredient_id = saved_ingredients[idx][0]
+
+        total_ingredients = max(len(ingredients), len(saved_ingredients))
+
+        for i in range(total_ingredients):
+            server_ingredient_name = str(saved_ingredients[i][1])
+            updated_ingredient_name = ingredients[i]
+            ingredient_id = saved_ingredients[i][0]
 
             print(f'name = {server_ingredient_name} : {updated_ingredient_name}')
             if server_ingredient_name != updated_ingredient_name:
                 print('update')
                 self._recipe_repository.update_ingredient(ingredient_id, updated_ingredient_name)
-            idx += 1
         ## add ingredients if new
         i = len(saved_ingredients)
         while i < len(ingredients):

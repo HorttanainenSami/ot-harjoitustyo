@@ -21,14 +21,14 @@ class EditRecipeView:
 
     def destroy(self):
         self._frame.destroy()
+        self._header_frame.destroy()
+        self._ingredients_frame.destroy()
 
     def _handle_update(self, instruction):
         recipe_name = self._header_frame.get_recipe_name()
         ingredients = self._ingredients_frame.get_ingredients_list()
 
         self._recipe_service.update_recipe(self._recipe_id, recipe_name, ingredients, instruction)
-        self._header_frame.destroy()
-        self._ingredients_frame.destroy()
         self._show_recipes()
 
     def _initialize_ingredients(self):

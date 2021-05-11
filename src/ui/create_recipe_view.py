@@ -19,14 +19,16 @@ class CreateRecipeView:
 
     def destroy(self):
         self._frame.destroy()
+        self._header_frame.destroy()
+        self._ingredients_frame.destroy()
 
     def _handle_save(self, instruction):
         recipe_name = self._header_frame.get_recipe_name()
         ingredients = self._ingredients_frame.get_ingredients_list()
         self._recipe_service.create_recipe(recipe_name, ingredients, instruction)
+        self._show_recipes()
 
-        self._header_frame.destroy()
-        self._ingredients_frame.destroy()
+    def _handle_back(self):
         self._show_recipes()
 
     def _initialize_ingredients(self):
@@ -36,14 +38,21 @@ class CreateRecipeView:
         instruction_lbl = ttk.Label(master=self._frame, text='Instructions:')
         instruction_txt = Text(master=self._frame, width=40, height=20)
 
+        back_button = ttk.Button(
+            master=self._frame,
+            text='back',
+            command=self._handle_back
+                )
         button = ttk.Button(
             master=self._frame,
             text='save',
             command=lambda: self._handle_save(instruction_txt.get('1.0', 'end'))
             )
+
         instruction_lbl.grid(padx=5, pady=5)
         instruction_txt.grid(padx=5, pady=5, columnspan=3)
-        button.grid(padx=5, pady=5)
+        button.grid(column=0, row=2, padx=5, pady=5)
+        back_button.grid(column=1, row=2, padx=5, pady=5)
 
     def _initialize(self):
         self._root.title('Create recipe view')

@@ -13,7 +13,7 @@ class UserRepository:
         Returns:
             all users in database
         '''
-        self._cursor.execute('SELECT * FROM user;')
+        return self._cursor.execute('SELECT * FROM user').fetchall()
 
     def insert_user(self, username, password):
         '''Inserts user in database

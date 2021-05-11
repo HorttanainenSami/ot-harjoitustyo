@@ -16,14 +16,13 @@ class RecipesView:
 
     def destroy(self):
         self._frame.destroy()
-
-    def _handle_logout(self):
         self._recipe_list.destroy()
+        
+    def _handle_logout(self):
         self._recipe_service.handle_logout()
         self._logout()
 
     def _handle_add_recipe(self):
-        self._recipe_list.destroy()
         self._show_create_recipe_view()
 
     def show_recipe(self, recipe_id):
@@ -40,8 +39,6 @@ class RecipesView:
         logout_btn.grid(padx=5, pady=5, row=0, column=1)
 
     def handle_button(self, recipe_id):
-        self._recipe_list.destroy()
-        print(f'recipe_id in RecipeView class {recipe_id}')
         self._show_recipe_view(recipe_id)
 
     def _initialize(self):

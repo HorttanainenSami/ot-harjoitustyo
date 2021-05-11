@@ -38,11 +38,14 @@ class RegisterView:
 
         label = ttk.Label(master=self._frame, text='Register to recipe manager')
         error_label = ttk.Label(master=self._frame, textvariable=self._error)
+
         username_label = ttk.Label(master=self._frame, text='Username')
         username_entry = ttk.Entry(master=self._frame, textvariable=self._username)
         username_entry.focus()
+
         password_label = ttk.Label(master=self._frame, text='Pasword')
         password_entry = ttk.Entry(master=self._frame, textvariable=self._password, show='*')
+
         button = ttk.Button(
             master=self._frame,
             text='Register and login',

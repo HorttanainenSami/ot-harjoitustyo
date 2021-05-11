@@ -3,7 +3,7 @@ from services.recipe_service import RecipeService, InvalidLoginError, UsernameAl
 from initialize_database import initialize_database
 from tests.config_test import configure
 
-class TestUsersRepository(unittest.TestCase):
+class TestRecipeService(unittest.TestCase):
     def setUp(self):
         initialize_database()
         self._service = RecipeService()
@@ -68,9 +68,26 @@ class TestUsersRepository(unittest.TestCase):
         initial_ingredients = []
         for row in self._service.get_ingredients(recipe_id):
             initial_ingredients.append(row[1])
-
-        self.assertEqual(ingredients, initial_ingredients)
-
+        for i in range(len(ingredients)):
+            self.assertEqual(str(ingredients[i]), str(initial_ingredients[i]))
         self._service.handle_logout()
+
+    def test_editing_recipe_name(self):
+        initialize_database()
+        self._service.create_user('testi', 'asd')
+        self._service.handle_login('testi', 'asd')
+        recipe_name = 'recipe1'
+        ingredients = ['ingredient1', 'ingredient2']
+        instructions = 'instructions1'
+        self._service.create_recipe(recipe_name, ingredients, instructions)
+        initial_recipe_list = self._service.get_all_recipes()
+
+        recipe_id = initial_recipe_list[len(initial_recipe_list) - 1][0]
+
+        self._service.update_recipe(recipe_id, 'update', ingredients, 'instructions2')
+        updated_list = self._service.get_all_recipes()
+        updated_recipe = updated_list[0]
+        self.assertEqual(recipe_id, updated_recipe[0])
+        self.assertEqual('update', updated_recipe[2])
 
 
