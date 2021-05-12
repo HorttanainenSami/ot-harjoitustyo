@@ -18,14 +18,10 @@ Käyttölittymä sisältää 6 erillistä näkymää:
 Jokainen näistä on luotu omana luokkanaan jotka näkyvät vain yksi kerrallaan. Näkymien näkymisen hoitaa [UI](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/ui.py)-luokka.
 
 ## Sovelluslogiikka
-Toiminnallisista kokonaisuuksista vastaa [RecipeService](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/services/recipe_service.py)-Luokka. Luokka tarjoaa käyttöliittymän toiminnoille omat metodit, kuten:
-- handle_login(username, password)
-- handle_logout()
-- create_user(username, password)
-- create_recipe(recipe_name, ingredients, instructions)
-- ...
+Toiminnallisista kokonaisuuksista vastaa [RecipeService](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/services/recipe_service.py)-Luokka. Luokka tarjoaa käyttöliittymän toiminnoille omat metodit joilla voidaan siirtyä käyttöliitymien näkymien välillä.
 
-Sovelluslogiikka toimii myös käyttöliittymän ja pysyväistallennukseen tarkoitettujen _repositories_ pakkauksen välikätenä, tallettaen ja hakien tietoa tietokannasta. 
+
+Sovelluslogiikka toimii myös käyttöliittymän ja pysyväistallennukseen tarkoitettujen _repositories_ pakkauksen välikätenä, tarjoen näkymille päässyn tietokannan dataan.
 
 ```RecipeService``` pääsee käsiksi ```RecipeRepository```:yn ja ```UserRepository```:yn joiden avulla sovelluslogiikka pääsee käsiksi tietokantaan tallennettuihin käyttäjiin ja resepteihin. 
 
@@ -58,8 +54,25 @@ Painikkeen 'Log out' tapahtumankäsittelijä kutsuu sovelluslogiikan ```RecipeSe
 
 ![image](https://user-images.githubusercontent.com/67758940/117974099-d9952180-b335-11eb-935d-321dd3f50ce3.png)
 
+Painikkeen 'save' tapahtumankäsittelijä kutsuu sovelluslogiikan```RecipeService```:n metodia [```create_recipe()```](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/010087bb07d603f2868919fed3b760eb3d93d416/src/services/recipe_service.py#L86) joka tallettaa reseptin tietokantaan ```RecipeRepository```:n metodilla [insert_recipe](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/0f529c87158c6c046624632ceb6a872c9f7ca439/src/repositories/recipes_repository.py#L37) joka palauttaa ```recipe_id```, eli juuri luodun reseptin id:n. Reseptin luonnin jälkeen ```RecipeService``` käy silmukassa _ingredients_ listan jokaisen alkion ja lisää ne yksitellen tietokannan _ingredient_-tauluun kutsumalla ```RecipesRepository```:n metodia [```add_ingredient```](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/0f529c87158c6c046624632ceb6a872c9f7ca439/src/repositories/recipes_repository.py#L64). Reseptin luomisen  ja ainesosien jälkeen ```UI``` kutsuu metodia ```_show_recipes()``` joka renderöi ```RevcipesView```-näkymän näkyviin.
 
 ### Reseptin poistaminen
 
+![image](https://user-images.githubusercontent.com/67758940/117976381-64771b80-b338-11eb-9dd1-973b5d284a5b.png)
+
+Painikkeen 'Delete' tapahtumankäsittelijä renderöi ruudulle ```askyesno()``` funktion jonka hyväksyttyä tapahtumankäsittelijä kutsuu sovelluslogiikan ```RecipeService```:n metodia [```delete_recipe```](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/0f529c87158c6c046624632ceb6a872c9f7ca439/src/services/recipe_service.py#L162)-metodia joka kutsuu ```RecipeRepository```:n metodia [```remove_recipe```](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/0f529c87158c6c046624632ceb6a872c9f7ca439/src/repositories/recipes_repository.py#L98) joka poistaa reseptin ja siihen kuuluvat ainesosat tietokannasta. ```UI``` kutsuu metodia ```_recipes_view()``` joka renderöi ```RecipesView```-näkymän.
+
 ### Reseptin muokkaaminen
 
+![image](https://user-images.githubusercontent.com/67758940/117993486-7496f700-b348-11eb-83cf-61c8f356e520.png)
+
+Painikkeen 'Modify' tapahtumankäsittelijä renderöi näkymän ```EditRecipeView``` josta voidaan muokata kyseistä reseptiä.
+
+Painikkeen 'save' tapahtumankäsittelijä kutsuu sovelluslogiikan ```RecipeService``` metodia [```update_recipe```](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/0f529c87158c6c046624632ceb6a872c9f7ca439/src/services/recipe_service.py#L114) joka kutsuu ```RecipeRepository```:n metodia ```update_recipe()```. Kyseinen metodi päivittää tietokannassa olevan reseptin nimen ja ohjeet paramtereilla annetuilla muuttujilla. Tämän jälkeen kutsutaan sovelluslogiikan omaa metodia [```ingredients_changed()```](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/0f529c87158c6c046624632ceb6a872c9f7ca439/src/services/recipe_service.py#L132) joka lisää/poistaa sen mukaan ainesosia miten ainesosalistaa on muokattu.
+```UI``` kutsuu metodia ```_show_recipes_view()``` joka renderöi RecipesView -näkymän
+
+### Reseptin viimeisimmän tekopäivän muokkaaminen
+
+![image](https://user-images.githubusercontent.com/67758940/117994251-128ac180-b349-11eb-9c7e-0c28a42b50e7.png)
+
+Painikkeen 'Produce' tapahtumankäsittelijä kutsuu sovelluslogiikan [```set_recipe_produced()```](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/0f529c87158c6c046624632ceb6a872c9f7ca439/src/services/recipe_service.py#L125) metodia. Metodi kutsuu taas ```RecipeRepository```:n metodia [```set_produced()```](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/0f529c87158c6c046624632ceb6a872c9f7ca439/src/repositories/recipes_repository.py#L91) joka tallettaa tämänhetkisen ajan tietokantaan.
