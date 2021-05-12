@@ -10,7 +10,7 @@ Sovelluksessa on ainoastaan peruskäyttäjä.
 ## Ennen kirjautumista
 * [x] Kirjautumis sivusto:
 * [x] Käyttäjä voi luoda käyttäjätunnuksen
--vähintään 4 merkin mittainen käyttäjätunnus
+-vähintään 3 merkin mittainen käyttäjätunnus ja salasana
 
 * [x] Käyttäjä voi kirjautua sisään
 * [x] Jos käyttäjä löytyy järjestelmästä, hänet kirjataan sisään
@@ -18,22 +18,21 @@ Sovelluksessa on ainoastaan peruskäyttäjä.
 
 ## Kirjautumisen jälkeen
 Kaikkien reseptien näkyminen
-* [x] pinossa viimeisimpänä resepti mitä on tehty aikajärjestyksessä viimeisimpänä
-* Reseptejä voi 
-* [x] tarkastella 
-* [x] merkitä tehdyksi, jolloin se siirtyy listan viimeisimmäksi
+  * [x] pinossa viimeisimpänä resepti mitä on tehty aikajärjestyksessä viimeisimpänä
+  * Reseptejä voi 
+  * [x] tarkastella 
+  * [x] merkitä tehdyksi, jolloin se siirtyy listan viimeisimmäksi
 
-Reseptin tarkastelu/muokkaus/poisto
-* reseptiä voi
-* [X]  tarkastella 
-* [ ] ladata ostoslistan
-* [X] muokata
-* [x] poistaa
+Reseptiä voi:
+  * [X] tarkastella 
+  * [X] muokata
+  * [x] poistaa
+  * [x] luoda
 
-Reseptin luominen:
-* [x] Tallennetaan ainekset
-* [x] ohjeet
-* [ ] vaikeustaso
+Reseptin viimeisimmän valmistupäivän voi päivittää
+  * [x] Resepti menee pinon pohjalle
+
+
 
 ## Jatkokehitysideoita
 - Ehdottaisi ruokia jotka ovat sesongissa
