@@ -1,32 +1,33 @@
 # Arkkitehtuurikuvaus
 ## Rakenne
-Koodin pakkausrakenne on seuraava:
 
 ![image](https://user-images.githubusercontent.com/67758940/115427008-baf5ac00-a209-11eb-8fc6-f46a9d6c6d9a.png)
 
-Pakkaus UI sisältää käyttöliittymän, Services sovelluslogiikan ja repositories sisältää pysyväistallennuksen koodin. Sovelluslogiikka toimii kaikkien pakkauksien yhdistäjänä.
+Pakkausrakenne on yllä olevan kaltainen, se sisältää käyttöliittymän (UI), sovelluslogiikan (services) ja paikallistallennuksen (repositories). Sovelluslogiikka toimii kaikkien pakkauksien yhdistäjänä.
 
 ## Käyttöliittymä
-Käyttölittymä sisältää 6 erillistä näkymää:
-- Kirjautuminen
-- Rekistöröityminen
-- Reseptit
-- Uuden reseptin luominen
-- Reseptin katsominen
-- Respetin päivittäminen
+Käyttölittymä sisältää 6 näkymää joiden näkymisestä huolehtii [UI](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/ui.py)-luokka. UI pitää huolen että vain yksi näkymä renderöidään kerrallaan. UI myös välittää tarpeellisen tiedon toisista näkymistä jokaisen näkymän konstruktoriin.
 
-Jokainen näistä on luotu omana luokkanaan jotka näkyvät vain yksi kerrallaan. Näkymien näkymisen hoitaa [UI](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/ui.py)-luokka.
+Käyttöliittymän kaikki näkymä luokat:
+- [Kirjautuminen](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/login_view.py)
+- [Rekistöröityminen](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/register_view.py)
+- [Reseptit](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/recipes_view.py)
+- [Uuden reseptin luominen](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/create_recipe_view.py)
+- [Reseptin katsominen](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/recipe_view.py)
+- [Respetin päivittäminen](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/ui/edit_recipe_view.py)
+
 
 ## Sovelluslogiikka
-Toiminnallisista kokonaisuuksista vastaa [RecipeService](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/services/recipe_service.py)-Luokka. Luokka tarjoaa käyttöliittymän toiminnoille omat metodit joilla voidaan siirtyä käyttöliitymien näkymien välillä.
+Sovelluksen toiminnallisuudesta vastaa [RecipeService](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/services/recipe_service.py)-Luokka. Luokka tarjoaa käyttöliittymän toiminnoille omat metodit joilla voidaan siirtyä käyttöliitymien näkymien välillä.
+
+```RecipeService``` pääsee käsiksi ```RecipeRepository```:yn ja ```UserRepository```:yn joiden avulla sovelluslogiikka pystyy keskustelemaan tietokantaan tallennettuihin käyttäjiin ja resepteihin. 
+
+Sovelluslogiikka toimii myös käyttöliittymän ja pysyväistallennukseen tarkoitettujen _repositories_ pakkauksen välikätenä, tarjoen näkymille päässyn tietokannan dataan ja mahdollistaa tietokannassa olevan data muokkaamisen.
 
 
-Sovelluslogiikka toimii myös käyttöliittymän ja pysyväistallennukseen tarkoitettujen _repositories_ pakkauksen välikätenä, tarjoen näkymille päässyn tietokannan dataan.
-
-```RecipeService``` pääsee käsiksi ```RecipeRepository```:yn ja ```UserRepository```:yn joiden avulla sovelluslogiikka pääsee käsiksi tietokantaan tallennettuihin käyttäjiin ja resepteihin. 
 
 ## Tietojen pysyväistallennus
-Tiedostot [recipe_repository](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/repositories/recipes_repository.py) ja [users_repository](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/repositories/users_repository.py) huolehtivat tietokannan kanssa kommunikoinnista ja tallettavat tiedostot _sqlite_ tietokantaan.
+Tiedostot [recipe_repository](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/repositories/recipes_repository.py) ja [users_repository](https://github.com/HorttanainenSami/ot-harjoitustyo/blob/master/src/repositories/users_repository.py) huolehtivat tietokannan kanssa kommunikoinnista ja tallettavat tiedostot _SQLite_ tietokantaan.
 
 ## Päätoiminnallisuus
 ### Käyttäjän kirjautuminen
