@@ -17,7 +17,7 @@ Sovelluksen toiminta on kehitetty ja todettu toimivaksi vähintään Python-vers
 ## Release
 - [Viikko5](https://github.com/HorttanainenSami/ot-harjoitustyo/releases/tag/viikko_5)
 - [viikko6](https://github.com/HorttanainenSami/ot-harjoitustyo/releases/tag/viikko6)
-- [Viikko7](https://github.com/HorttanainenSami/ot-harjoitustyo/releases/tag/viiikko7)
+- [Viikko7](https://github.com/HorttanainenSami/ot-harjoitustyo/releases/tag/viikko_7)
 ## Asennus
 1. Asenna riippuvuudet komennolla:
  ```poetry install```
