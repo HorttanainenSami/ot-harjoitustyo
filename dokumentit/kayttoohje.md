@@ -60,6 +60,7 @@ Avaa jokin luoduistasi resepteistä painamalla sitä.
 ![image](https://user-images.githubusercontent.com/67758940/117996808-220b0a00-b34b-11eb-8fe3-399a3e115c22.png)
 
 Paina sivun yläpalkissa olevaa 'Modify' joka avaa reseptin muokkaus sivun. 
+
 ![image](https://user-images.githubusercontent.com/67758940/117996909-39e28e00-b34b-11eb-80c7-b093da33be76.png)
 
 Muokkaa reseptiä
