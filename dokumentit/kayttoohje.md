@@ -27,7 +27,7 @@ Paina 'Register new user' - painiketta ja siirryt 'Register view' näkymään.
 ![image](https://user-images.githubusercontent.com/67758940/117035534-185f2200-ad0d-11eb-9bc4-a25236c2662d.png)
 
 Kirjoita haluamasi käyttäjätunnus ja paina 'Register and login' -painiketta
-**HUOM: jos käyttäjätunnuksesi ei ole uniikki, tai käyttäjätunnuksesi/salasanasi on alle 3 merkkiä pitkä tulee seuraavan varoitus***
+**HUOM: jos käyttäjätunnuksesi ei ole uniikki, tai käyttäjätunnuksesi/salasanasi on alle 3 merkkiä pitkä tulee seuraavan kaltainen varoitus***
 
 ![image](https://user-images.githubusercontent.com/67758940/117035794-6bd17000-ad0d-11eb-82ca-c9cdc8870473.png)
 
