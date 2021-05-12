@@ -137,7 +137,7 @@ class RecipeService:
         '''
         saved_ingredients = self._recipe_repository.get_ingredients(recipe_id)
 
-        total_ingredients = max(len(ingredients), len(saved_ingredients))
+        total_ingredients = min(len(ingredients), len(saved_ingredients))
 
         for i in range(total_ingredients):
             server_ingredient_name = str(saved_ingredients[i][1])
