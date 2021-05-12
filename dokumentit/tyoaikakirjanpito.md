@@ -8,7 +8,8 @@
 |26.04|6h| Toimintojen lisäys porjektiin|
 |27.04|3h| palautuksen tekeminen|
 |04.05|6h| testien ja muiden viikon 6 palautuksien valmisteleminen|
-| Yhteenveto|31h |
+|12.05|6h| Palautus|
+| Yhteenveto|37h |
 
 
 
