@@ -55,8 +55,37 @@ Tallenna resepti painamalla alakulmasta ```Save```-näppäintä, jolloin resepti
 
 
 ## Reseptin muokkaaminen
+Avaa jokin luoduistasi resepteistä painamalla sitä. 
+
+![image](https://user-images.githubusercontent.com/67758940/117996808-220b0a00-b34b-11eb-8fe3-399a3e115c22.png)
+
+Paina sivun yläpalkissa olevaa 'Modify' joka avaa reseptin muokkaus sivun. 
+![image](https://user-images.githubusercontent.com/67758940/117996909-39e28e00-b34b-11eb-80c7-b093da33be76.png)
+
+Muokkaa reseptiä
+
+![image](https://user-images.githubusercontent.com/67758940/117997241-7a420c00-b34b-11eb-9346-ed12f474fa2e.png)
+
+ja paina sivun alakulmasta 'save'
+
+![image](https://user-images.githubusercontent.com/67758940/117997706-e02e9380-b34b-11eb-977c-e1319921dfaf.png)
+
+Nyt huomataan että resepti on päivittynyt
 
 ## Reseptin poistaminen
+Avaa resepti jonka haluat poistaa tietokannasta
+
+![image](https://user-images.githubusercontent.com/67758940/117997897-123ff580-b34c-11eb-8e6e-738414f7c16e.png)
+
+Paina yläkulmassa olevasta 'Delete' näppäimestä
+
+![image](https://user-images.githubusercontent.com/67758940/117997935-1bc95d80-b34c-11eb-9d39-a3a1341d2aff.png)
+
+Paina 'Yes' sivulle aukeavasta popupista
+
+![image](https://user-images.githubusercontent.com/67758940/117998103-40253a00-b34c-11eb-9a17-c6ac408818eb.png)
+
+Nyt resepti on poistettu tietokannasta
 
 ## Ulos kirjautuminen
 Paina ```recipes view``` näkymän ```Log out```- näppäintä
